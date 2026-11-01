@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>少儿医疗险选购指南</title>
+<style>
+  :root{
+    --ink:#1b2430;
+    --ink-soft:#55616f;
+    --line:#e3e8ef;
+    --bg:#f6f8fb;
+    --card:#ffffff;
+    --brand:#0e7490;
+    --brand-2:#0891b2;
+    --warn:#c2410c;
+    --warn-bg:#fff7ed;
+    --ok:#15803d;
+    --ok-bg:#f0fdf4;
+    --radius:14px;
+    --shadow:0 1px 2px rgba(16,24,40,.04), 0 6px 18px rgba(16,24,40,.06);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",system-ui,-apple-system,sans-serif;
+    line-height:1.8;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:860px;margin:0 auto;padding:48px 24px 72px;}
+
+  /* ---------- header ---------- */
+  .hero{
+    background:linear-gradient(135deg,#0e7490 0%,#0891b2 55%,#06b6d4 100%);
+    border-radius:20px;
+    padding:44px 40px 38px;
+    color:#fff;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 12px 32px rgba(8,145,178,.22);
+  }
+  .hero::after{
+    content:"";position:absolute;right:-70px;top:-80px;width:260px;height:260px;
+    background:rgba(255,255,255,.10);border-radius:50%;
+  }
+  .hero::before{
+    content:"";position:absolute;right:60px;bottom:-110px;width:200px;height:200px;
+    background:rgba(255,255,255,.08);border-radius:50%;
+  }
+  .hero h1{margin:0 0 10px;font-size:32px;letter-spacing:.5px;font-weight:700;position:relative;}
+  .hero p{margin:0;font-size:15px;opacity:.92;max-width:560px;position:relative;}
+  .hero .meta{margin-top:22px;font-size:13px;opacity:.78;position:relative;}
+
+  /* ---------- section ---------- */
+  section{margin-top:44px;}
+  .sec-title{display:flex;align-items:center;gap:12px;margin-bottom:6px;}
+  .num{
+    flex:0 0 auto;width:28px;height:28px;border-radius:9px;
+    background:var(--brand);color:#fff;font-size:14px;font-weight:700;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .sec-title h2{margin:0;font-size:21px;font-weight:700;letter-spacing:.3px;}
+  .sec-sub{margin:0 0 18px 40px;color:var(--ink-soft);font-size:14px;}
+  section > .body{padding-left:40px;}
+  @media (max-width:640px){
+    section > .body{padding-left:0;}
+    .sec-sub{margin-left:0;}
+  }
+
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px 26px;box-shadow:var(--shadow);
+  }
+
+  /* ---------- conclusion ---------- */
+  .conclusion{
+    margin-top:28px;background:var(--card);border:1px solid var(--line);
+    border-left:4px solid var(--brand);
+    border-radius:var(--radius);padding:22px 26px;box-shadow:var(--shadow);
+  }
+  .conclusion .tag{
+    display:inline-block;font-size:12px;font-weight:700;color:var(--brand);
+    background:#ecfeff;border-radius:6px;padding:2px 10px;margin-bottom:10px;letter-spacing:.5px;
+  }
+  .conclusion p{margin:0;font-size:16px;}
+  .conclusion strong{color:var(--brand);}
+
+  /* ---------- 三层结构 ---------- */
+  .layer{display:flex;gap:14px;margin-bottom:12px;align-items:stretch;}
+  .layer .badge{
+    flex:0 0 52px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    border-radius:12px;color:#fff;font-size:12px;font-weight:700;letter-spacing:1px;
+    padding:10px 0;
+  }
+  .layer .text{
+    flex:1;background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:16px 20px;box-shadow:var(--shadow);
+  }
+  .layer .text h3{margin:0 0 4px;font-size:16px;}
+  .layer .text p{margin:0;font-size:14px;color:var(--ink-soft);}
+  .l1 .badge{background:#0e7490;}
+  .l2 .badge{background:#0891b2;}
+  .l3 .badge{background:#22a3bd;}
+
+  /* ---------- table ---------- */
+  .table-scroll{overflow-x:auto;border-radius:var(--radius);box-shadow:var(--shadow);}
+  table{border-collapse:collapse;width:100%;background:#fff;font-size:14px;min-width:620px;}
+  thead th{
+    background:#0e7490;color:#fff;font-weight:600;text-align:left;
+    padding:13px 16px;font-size:13.5px;letter-spacing:.3px;white-space:nowrap;
+  }
+  tbody td{padding:13px 16px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink);}
+  tbody tr:nth-child(even) td{background:#fbfdfe;}
+  tbody tr:last-child td{border-bottom:none;}
+  td.key{font-weight:600;color:var(--brand);white-space:nowrap;}
+
+  /* ---------- budget ---------- */
+  .budget{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  @media (max-width:720px){.budget{grid-template-columns:1fr;}}
+  .bcard{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:20px 22px;box-shadow:var(--shadow);display:flex;flex-direction:column;
+  }
+  .bcard .tier{font-size:12px;font-weight:700;letter-spacing:1px;border-radius:6px;padding:2px 9px;align-self:flex-start;margin-bottom:10px;}
+  .bcard.base .tier{color:#0369a1;background:#e0f2fe;}
+  .bcard.mid .tier{color:#0e7490;background:#ecfeff;}
+  .bcard.high .tier{color:#7c3aed;background:#f5f3ff;}
+  .bcard h3{margin:0 0 4px;font-size:16px;}
+  .bcard .price{font-size:13px;color:var(--ink-soft);margin-bottom:12px;}
+  .bcard ul{margin:0;padding-left:18px;font-size:13.5px;color:var(--ink-soft);}
+  .bcard ul li{margin-bottom:6px;}
+
+  /* ---------- chain ---------- */
+  .chain{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .step{
+    flex:1 1 150px;background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:14px 16px;text-align:center;box-shadow:var(--shadow);
+  }
+  .step .n{font-size:12px;color:var(--brand);font-weight:700;letter-spacing:1px;}
+  .step .t{font-size:14px;font-weight:600;margin-top:4px;}
+  .step .d{font-size:12.5px;color:var(--ink-soft);margin-top:2px;}
+  .arrow{color:#94a3b8;font-size:18px;font-weight:700;flex:0 0 auto;}
+  @media (max-width:720px){.arrow{display:none;}}
+
+  .callout{
+    margin-top:16px;border-radius:12px;padding:16px 20px;font-size:14px;
+  }
+  .callout.warn{background:var(--warn-bg);border:1px solid #fed7aa;color:#7c2d12;}
+  .callout.warn .h{font-weight:700;color:var(--warn);display:block;margin-bottom:4px;}
+  .callout.ok{background:var(--ok-bg);border:1px solid #bbf7d0;color:#14532d;}
+  .callout.ok .h{font-weight:700;color:var(--ok);display:block;margin-bottom:4px;}
+
+  /* ---------- checklist ---------- */
+  .check{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:10px 8px;box-shadow:var(--shadow);}
+  .check .item{display:flex;gap:14px;padding:14px 18px;border-bottom:1px dashed var(--line);}
+  .check .item:last-child{border-bottom:none;}
+  .check .box{flex:0 0 18px;height:18px;margin-top:6px;border:2px solid #cbd5e1;border-radius:4px;}
+  .check .item h4{margin:0 0 2px;font-size:15px;}
+  .check .item p{margin:0;font-size:13.5px;color:var(--ink-soft);}
+
+  /* ---------- myths ---------- */
+  .myth{display:flex;gap:12px;margin-bottom:12px;}
+  .myth .x{flex:0 0 26px;height:26px;border-radius:50%;background:#fee2e2;color:#b91c1c;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:14px;margin-top:4px;}
+  .myth .b{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;flex:1;box-shadow:var(--shadow);}
+  .myth .b b{font-size:14.5px;color:#b91c1c;}
+  .myth .b p{margin:4px 0 0;font-size:13.5px;color:var(--ink-soft);}
+
+  .disclaimer{
+    margin-top:48px;padding:18px 22px;background:#fff;border:1px dashed #cbd5e1;border-radius:12px;
+    font-size:12.5px;color:#64748b;line-height:1.75;
+  }
+  .disclaimer b{color:#475569;}
+
+  @media print{
+    body{background:#fff;}
+    .hero{box-shadow:none;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .card,.check,.myth .b,.step,.bcard,.conclusion{box-shadow:none;}
+    section{page-break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <h1>少儿医疗险选购指南</h1>
+    <p>覆盖门诊与住院的少儿医疗险，怎么组合、怎么看条款、怎么不踩坑。</p>
+    <div class="meta">整理日期：2026-11-01 · 适用对象：0–17 周岁少儿 · 用途：投保前的思路梳理</div>
+  </div>
+
+  <div class="conclusion">
+    <span class="tag">一句话结论</span>
+    <p>先用<strong>少儿医保</strong>打底，再用<strong>百万医疗险</strong>挡住住院大额花费，最后用<strong>小额门诊住院险</strong>补上感冒发烧这类日常门诊——三层叠起来，才是"门诊 + 住院"都报得上的完整方案。</p>
+  </div>
+
+  <!-- 1 -->
+  <section>
+    <div class="sec-title"><span class="num">1</span><h2>先弄清三层保障结构</h2></div>
+    <p class="sec-sub">少儿医疗险不是"买一份就够"，而是三层分工，每层解决不同问题。</p>
+    <div class="body">
+      <div class="layer l1">
+        <div class="badge">第一层</div>
+        <div class="text">
+          <h3>少儿医保（城乡居民医保）· 必配</h3>
+          <p>国家基础保障，价格低、无健康告知。它是所有商业医疗险的"结算入口"，不参保会直接影响后续商业险的报销比例。</p>
+        </div>
+      </div>
+      <div class="layer l2">
+        <div class="badge">第二层</div>
+        <div class="text">
+          <h3>百万医疗险 · 挡大额住院</h3>
+          <p>保额上百万，覆盖住院、特殊门诊、门诊手术等大额支出，通常有 1 万元免赔额。优先选"不限社保范围"、保证续保期长的产品。</p>
+        </div>
+      </div>
+      <div class="layer l3">
+        <div class="badge">第三层</div>
+        <div class="text">
+          <h3>小额门诊住院险 · 补日常高频</h3>
+          <p>保额几万元、免赔额低甚至为 0，专门报销感冒发烧、肺炎、小额住院这类高频小额支出，解决百万医疗险"够不着免赔额"的缺口。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section>
+    <div class="sec-title"><span class="num">2</span><h2>三类产品对照</h2></div>
+    <p class="sec-sub">市面上的产品本质上落在这三类里，先认清类型，再比具体条款。</p>
+    <div class="body">
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>维度</th>
+              <th>小额门诊住院险</th>
+              <th>百万医疗险</th>
+              <th>中高端医疗险</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="key">保额</td>
+              <td>几千 ~ 几万元</td>
+              <td>百万级</td>
+              <td>百万级，含门诊责任</td>
+            </tr>
+            <tr>
+              <td class="key">免赔额</td>
+              <td>0 或几百元</td>
+              <td>常见 1 万元</td>
+              <td>可选 0 免赔</td>
+            </tr>
+            <tr>
+              <td class="key">门诊覆盖</td>
+              <td>核心卖点，按次/按年限额</td>
+              <td>一般只保特殊门诊、门诊手术</td>
+              <td>含普通门诊</td>
+            </tr>
+            <tr>
+              <td class="key">医院范围</td>
+              <td>二级及以上公立医院普通部</td>
+              <td>二级及以上公立医院普通部</td>
+              <td>可含特需部、国际部、私立医院</td>
+            </tr>
+            <tr>
+              <td class="key">社保外用药</td>
+              <td>部分产品不限，需看清</td>
+              <td>优先选"不限社保"版本</td>
+              <td>通常不限</td>
+            </tr>
+            <tr>
+              <td class="key">续保</td>
+              <td>多为 1 年期，不保证续保</td>
+              <td>优先选保证续保 6 年 / 20 年的</td>
+              <td>多为 1 年期</td>
+            </tr>
+            <tr>
+              <td class="key">适合谁</td>
+              <td>想报销日常小病门诊</td>
+              <td>所有孩子的兜底配置</td>
+              <td>在意就医体验与时效</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section>
+    <div class="sec-title"><span class="num">3</span><h2>按预算给三套配置</h2></div>
+    <p class="sec-sub">同样的预算，先保大额还是先保高频，取舍顺序不一样。</p>
+    <div class="body">
+      <div class="budget">
+        <div class="bcard base">
+          <span class="tier">基础档</span>
+          <h3>先挡住大额风险</h3>
+          <div class="price">年度保费：数百元级</div>
+          <ul>
+            <li>少儿医保（必配）</li>
+            <li>百万医疗险（1 万免赔）</li>
+            <li>小额门诊靠医保 + 自付</li>
+          </ul>
+        </div>
+        <div class="bcard mid">
+          <span class="tier">进阶档</span>
+          <h3>门诊住院都能报</h3>
+          <div class="price">年度保费：千元级</div>
+          <ul>
+            <li>少儿医保</li>
+            <li>百万医疗险</li>
+            <li>小额门诊住院险（低/零免赔）</li>
+            <li>可叠加意外险覆盖磕碰烫伤</li>
+          </ul>
+        </div>
+        <div class="bcard high">
+          <span class="tier">高端档</span>
+          <h3>要就医体验</h3>
+          <div class="price">年度保费：数千元级</div>
+          <ul>
+            <li>少儿医保</li>
+            <li>中高端医疗险（含门诊）</li>
+            <li>特需部 / 私立医院、直付</li>
+            <li>健康管理、绿通等增值服务</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section>
+    <div class="sec-title"><span class="num">4</span><h2>报销是怎么走完的</h2></div>
+    <p class="sec-sub">顺序错了，比例就掉了——这是少儿医疗险最容易吃亏的地方。</p>
+    <div class="body">
+      <div class="chain">
+        <div class="step">
+          <div class="n">STEP 1</div>
+          <div class="t">就医</div>
+          <div class="d">二级及以上公立医院</div>
+        </div>
+        <div class="arrow">→</div>
+        <div class="step">
+          <div class="n">STEP 2</div>
+          <div class="t">医保结算</div>
+          <div class="d">先刷少儿医保卡</div>
+        </div>
+        <div class="arrow">→</div>
+        <div class="step">
+          <div class="n">STEP 3</div>
+          <div class="t">商保报销</div>
+          <div class="d">凭分割单 / 发票申请</div>
+        </div>
+      </div>
+
+      <div class="callout warn">
+        <span class="h">关键提醒</span>
+        多数产品的门诊责任要求<strong>先经医保结算</strong>。如果孩子的居民医保没有报门诊、直接走自费，商业险的报销比例会明显下降（常见从接近全额降到五六折）。投保前先确认当地少儿医保的门诊待遇，就诊时务必先医保结算。
+      </div>
+
+      <div class="callout ok">
+        <span class="h">补充说明</span>
+        医疗险遵循<strong>补偿原则</strong>：同一笔费用在多份医疗险之间不能重复获利，总报销金额不超过实际支出。所以"多买几份医疗险"并不会多赔，合理做法是分层配置、各管一段。
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section>
+    <div class="sec-title"><span class="num">5</span><h2>五个必看的条款</h2></div>
+    <p class="sec-sub">同样叫"门诊住院都保"，差别全藏在这五处。</p>
+    <div class="body">
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th style="width:150px">条款</th><th>要看什么</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="key">报销范围</td>
+              <td>是"社保内"还是"不限社保"。不限社保的产品，自费药、进口药、自费耗材才能报，少儿治疗里这部分占比不低。</td>
+            </tr>
+            <tr>
+              <td class="key">免赔额与赔付比例</td>
+              <td>0 免赔还是按次 100 元；比例是 100% 还是分级（如经社保 80%、未经社保 50%）。</td>
+            </tr>
+            <tr>
+              <td class="key">保证续保</td>
+              <td>百万医疗优先选保证续保 6 年或 20 年的；小额门诊险多为 1 年期，要留意停售与理赔后能否续保。</td>
+            </tr>
+            <tr>
+              <td class="key">健康告知</td>
+              <td>早产、低出生体重、黄疸、先天性疾病的问询口径。如实告知是理赔的前提，拿不准就走智能核保或人工核保。</td>
+            </tr>
+            <tr>
+              <td class="key">少儿专属责任</td>
+              <td>意外牙齿修复、烧烫伤修复、疫苗不良反应、先天性疾病等少儿高发自费项目是否在保障内。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section>
+    <div class="sec-title"><span class="num">6</span><h2>投保前自查清单</h2></div>
+    <p class="sec-sub">逐条打勾，全部确认再下单。</p>
+    <div class="body">
+      <div class="check">
+        <div class="item"><div class="box"></div><div><h4>孩子的少儿医保已参保并在有效期内</h4><p>这是所有商业医疗险报销比例的前提，没参保先补办。</p></div></div>
+        <div class="item"><div class="box"></div><div><h4>确认当地医保的门诊待遇</h4><p>居民医保门诊是否可报、起付线和比例多少，直接决定商保能补多少。</p></div></div>
+        <div class="item"><div class="box"></div><div><h4>已过等待期再安排非紧急就医</h4><p>医疗险常见 30 天等待期，门诊险有的更长；等待期内出险不赔。</p></div></div>
+        <div class="item"><div class="box"></div><div><h4>健康告知逐条核对，无漏填</h4><p>既往病史、住院记录、体检异常都要对得上，别凭印象勾"否"。</p></div></div>
+        <div class="item"><div class="box"></div><div><h4>医院范围写进合同</h4><p>确认是"二级及以上公立医院普通部"还是放宽到特需/私立，去错医院不赔。</p></div></div>
+        <div class="item"><div class="box"></div><div><h4>门诊是否要求先医保结算</h4><p>看清条款表述，就诊时先刷医保再走商保，顺序不能反。</p></div></div>
+        <div class="item"><div class="box"></div><div><h4>续保条件与停售处理已了解</h4><p>保证续保期多长、期满后如何处理、理赔过是否还能续。</p></div></div>
+        <div class="item"><div class="box"></div><div><h4>没有重复投保同一责任</h4><p>两份门诊险不会多赔，预算叠在同一段上不如补齐缺口。</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 -->
+  <section>
+    <div class="sec-title"><span class="num">7</span><h2>四个常见误区</h2></div>
+    <p class="sec-sub">这些想法听起来合理，实际会让保障打折。</p>
+    <div class="body">
+      <div class="myth">
+        <div class="x">✕</div>
+        <div class="b"><b>误区一：买了商业险就不用上少儿医保</b>
+          <p>恰恰相反。医保是结算入口，没有它，多数产品的报销比例会掉一大截。</p></div>
+      </div>
+      <div class="myth">
+        <div class="x">✕</div>
+        <div class="b"><b>误区二：保额越高越好</b>
+          <p>百万保额和两百万保额的差别，远不如"是否不限社保、免赔额多少"来得实际。</p></div>
+      </div>
+      <div class="myth">
+        <div class="x">✕</div>
+        <div class="b"><b>误区三：门诊责任买得越多越划算</b>
+          <p>门诊险保费不低、限额有限，先算一年实际门诊花费，再看保费是否值回。</p></div>
+      </div>
+      <div class="myth">
+        <div class="x">✕</div>
+        <div class="b"><b>误区四：健康告知随便勾一下就行</b>
+          <p>如实告知是理赔的前提。漏填既往症，出事时最容易被拒赔。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="disclaimer">
+    <b>免责说明</b>：本指南为投保思路梳理，用于帮助理解少儿医疗险的产品类型、条款要点与配置顺序，不构成对任何具体产品的推荐或承诺。各产品的保障责任、免赔额、赔付比例、医院范围、续保规则、健康告知均以保险公司正式条款与投保须知为准；各地少儿医保门诊待遇存在差异，请以当地医保部门公布口径为准。投保前请务必逐条阅读条款原文。
+  </div>
+
+</div>
+</body>
+</html>
